@@ -1,8 +1,8 @@
-#include <iostream>		//c++ Ç¥ÁØÀÔÃâ·Â ÇÔ¼ö »ç¿ë
+#include <iostream>		//c++ í‘œì¤€ì…ì¶œë ¥ í•¨ìˆ˜ ì‚¬ìš©
 #include <string>
 
-//cin = console input (>>(¿À¸¥ÂÊ ²©¼è)´Â Shift¸¦ ´©¸¥ Ã¤·Î .(Á¡)À» ´©¸£¸é µË´Ï´Ù.)
-//cout = console output (<< (¿ŞÂÊ ²©¼è)´Â Shift¸¦ ´©¸¥ Ã¤·Î, (½°Ç¥)¸¦ ´©¸£¸é µË´Ï´Ù.)
+//cin = console input (>>(ì˜¤ë¥¸ìª½ êº½ì‡ )ëŠ” Shiftë¥¼ ëˆ„ë¥¸ ì±„ë¡œ .(ì )ì„ ëˆ„ë¥´ë©´ ë©ë‹ˆë‹¤.)
+//cout = console output (<< (ì™¼ìª½ êº½ì‡ )ëŠ” Shiftë¥¼ ëˆ„ë¥¸ ì±„ë¡œ, (ì‰¼í‘œ)ë¥¼ ëˆ„ë¥´ë©´ ë©ë‹ˆë‹¤.)
 
 #define M 1234567891
 #define r 31
@@ -10,7 +10,7 @@
 using namespace std;
 using ll = long long;
 
-ll mod(int num, int count);
+ll pow(int num, int count);
 
 int main() {
 	int length;
@@ -20,15 +20,17 @@ int main() {
 	cin >> input;
 
 	ll hash = 0;
-
+	
+	// ë¬¸ìì—´ ìˆ˜ì—´ì˜ ê°’ sum í›„ mod ì—°ì‚°
 	for (int i = 0; i < length; i++) {
-		hash = (hash + mod(input[i]-'a' + 1, i)) % M;
+		hash = (hash + pow(input[i]-'a' + 1, i)) % M;
 	}
 
 	cout << hash;
 }
 
-ll mod(int num, int count) {
+//ë¬¸ìì—´ì˜ ê° í•­ë§ˆë‹¤ ë¶€ì—¬ë˜ëŠ” ê³„ìˆ˜ì˜ ì§€ìˆ˜ ì—°ì‚°
+ll pow(int num, int count) {
 	ll res = num;
 	for (int i = 0; i < count; i++) {
 		res = (res * r) % M;
@@ -38,7 +40,7 @@ ll mod(int num, int count) {
 }
 
 /*
-Á¦»ê ÇÔ¼ö ±âº»Çü
+ì œì‚° í•¨ìˆ˜ ê¸°ë³¸í˜•
 
 int hash_function(int key) {
 	int hash_index = key % M;
@@ -50,7 +52,7 @@ int hash_function(int key) {
 */
 
 /*
-¸ğµâ·¯ ¿¬»ê ±âº» ¼Ó¼º
+ëª¨ë“ˆëŸ¬ ì—°ì‚° ê¸°ë³¸ ì†ì„±
 1. (a + b) mod n = {(a mod n) + (b mod n)} mod n
 2. (a - b) mod n = {(a mod n) - (b mod n)} mod n
 3. (a * b) mod n = {(a mod n) * (b mod n)} mod n
