@@ -39,7 +39,8 @@
  
 - 15829 Hashing (C++ 구현)
  - 더 간단한 코드 
- 	`#include <iostream> 
+ 	```
+	#include <iostream> 
 	#include <string> 
 	using namespace std; 
 	const int MOD = 1234567891; 
@@ -62,6 +63,7 @@
 		return 0; 
 	}
 
-	출처: https://jaimemin.tistory.com/1445 [꾸준함]`
+	출처: https://jaimemin.tistory.com/1445 [꾸준함]
+	```
 
 2주차 정렬
